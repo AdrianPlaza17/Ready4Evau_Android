@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "795158298476",
+    "project_id": "ready4evau",
+    "storage_bucket": "ready4evau.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795158298476:android:65dd1796d7829617c6fd49",
+        "android_client_info": {
+          "package_name": "com.project.ready4evau"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795158298476-njlpv6cqrfru088eio9uvuognrdgqhkg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkgwG8LSk7CyD4R-bb9MqI1rAAzEbNAgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795158298476-njlpv6cqrfru088eio9uvuognrdgqhkg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

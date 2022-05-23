@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ejercicios.GeneradorPregunta">
+
+    <TextView
+        android:id="@+id/tv_Asignatura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tv_Tema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btn_NuevaPregunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nueva Pregunta" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_Foto"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/iv_Pregunta"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            tools:srcCompat="@tools:sample/avatars" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_Solucion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Solucion" />
+
+</LinearLayout>

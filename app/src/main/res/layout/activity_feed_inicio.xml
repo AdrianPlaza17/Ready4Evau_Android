@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+    android:id="@+id/constrainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/naranja"
+    tools:context=".auth.FeedInicioActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100pt"
+        android:layout_height="100pt"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="92dp"
+        android:contentDescription="Logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/r4_principal" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20pt"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Registrarse"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_iniciar"
+            android:fontFamily="@font/roboto_medium"
+            android:stateListAnimator="@null"
+            android:text="Iniciar sesion"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            app:cornerRadius="40dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Google"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_iniciar"
+            android:drawableStart="@drawable/googleg_standard_color_18"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingLeft="30dip"
+            android:paddingRight="26dip"
+            android:stateListAnimator="@null"
+            android:text="Continuar con Google"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            app:cornerRadius="40dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Facebook"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_iniciar_facebook"
+            android:drawableStart="@drawable/icons8_facebook_circled_36___"
+            android:fontFamily="@font/roboto_medium"
+            android:paddingLeft="15dip"
+            android:paddingRight="40dip"
+            android:stateListAnimator="@null"
+            android:text="Continuar con Facebook"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:cornerRadius="40dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Registro"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/button_registrarse"
+            android:fontFamily="@font/roboto_medium"
+            android:stateListAnimator="@null"
+            android:text="¿No tienes cuenta? Registrate"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            app:cornerRadius="40dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Ready4Evau</string>
+    <string name="title_activity_principal_navigation">PrincipalNavigation</string>
+    <string name="prefs_file">com.project.Ready4Evau.PREFERENCE_FILE_KEY</string>
+    <string name="default_web_client_id1">795158298476-njlpv6cqrfru088eio9uvuognrdgqhkg.apps.googleusercontent.com</string>
+    <string name="title_activity_navigation">Navigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

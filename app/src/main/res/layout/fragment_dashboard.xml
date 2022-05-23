@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/naranja"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            app:srcCompat="@drawable/header_r4" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_Twitter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ir a twitter" />
+
+        <EditText
+            android:id="@+id/et_Numero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:ems="10"
+            android:hint="Introduce un numero"
+            android:inputType="phone"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/btn_llamar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Llamar" />
+
+        <Button
+            android:id="@+id/btn_Burro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pulsa para ver un burro" />
+
+        <Button
+            android:id="@+id/btn_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ir a facebook" />
+
+        <Button
+            android:id="@+id/btn_Camara"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Abrir camara" />
+    </LinearLayout>
+
+</LinearLayout>

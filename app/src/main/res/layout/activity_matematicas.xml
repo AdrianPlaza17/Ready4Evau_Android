@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".asignaturas.Matematicas">
+
+    <Button
+        android:id="@+id/btn_Matrices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Matrices" />
+
+    <Button
+        android:id="@+id/btn_Determinantes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Determinantes" />
+
+    <Button
+        android:id="@+id/btn_Geometria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Geometría" />
+
+    <Button
+        android:id="@+id/btn_Limites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Límites" />
+
+    <Button
+        android:id="@+id/btn_Derivadas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Derivadas" />
+
+    <Button
+        android:id="@+id/btn_Integrales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Integrales" />
+
+    <Button
+        android:id="@+id/btn_Probabilidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Probabilidad" />
+
+</LinearLayout>
