@@ -100,7 +100,7 @@ class GeneradorPregunta : AppCompatActivity() {
         btn_Solucion.setOnClickListener(){
             cont += 1
             cv_Foto.startAnimation(anim)
-            iv_Pregunta.startAnimation(anim)
+
             if (cont % 2 != 0){
                 Picasso.get().load(p_Solucion).into(iv_Pregunta);
                 btn_Solucion.setText("Ver Enunciado")
