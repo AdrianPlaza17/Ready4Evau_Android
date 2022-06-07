@@ -4,9 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import com.project.ready4evau.R
+import com.project.ready4evau.ejercicios.GeneradorExamenMatematicas
 import com.project.ready4evau.ejercicios.GeneradorPregunta
+import java.time.LocalDate
 
 class Matematicas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +25,9 @@ class Matematicas : AppCompatActivity() {
         val btn_Derivadas = findViewById<Button>(R.id.btn_Derivadas)
         val btn_Integrales = findViewById<Button>(R.id.btn_Integrales)
         val btn_Probabilidad = findViewById<Button>(R.id.btn_Probabilidad)
+        val btn_Fecha = findViewById<Button>(R.id.btn_FechaHoy)
+
+        val hoy = LocalDate.now().toString()
 
         btn_Matrices.setOnClickListener{ generarPregunta("Matrices") }
         btn_Determinantes.setOnClickListener{ generarPregunta("Determinantes") }
@@ -30,6 +36,11 @@ class Matematicas : AppCompatActivity() {
         btn_Derivadas.setOnClickListener{ generarPregunta("Derivadas") }
         btn_Integrales.setOnClickListener{ generarPregunta("Integrales") }
         btn_Probabilidad.setOnClickListener{ generarPregunta("Probabilidad") }
+        btn_Fecha.setOnClickListener{
+            startActivity(Intent(this, GeneradorExamenMatematicas::class.java))
+            Toast.makeText(baseContext, hoy,
+                Toast.LENGTH_SHORT).show()
+        }
 
     }
 
@@ -40,4 +51,5 @@ class Matematicas : AppCompatActivity() {
         }
         startActivity(intent)
     }
+    
 }

@@ -31,18 +31,32 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val btn_matematicas = binding.btnMatematicas
-        val btn_quimica = binding.btnQuimica
-        val btn_fisica = binding.btnFisica
+        val btn_matematicasEjercicio = binding.btnMatematicasEjercicio
+        val btn_quimicaEjercicio = binding.btnQuimicaEjercicio
+        val btn_fisicaEjercicio = binding.btnFisicaEjercicio
 
-        btn_matematicas.setOnClickListener(){
+        val btn_matematicasExamen = binding.btnMatematicasExamen
+        val btn_quimicaExamen = binding.btnQuimicaExamen
+        val btn_fisicaExamen = binding.btnFisicaExamen
+
+        btn_matematicasEjercicio.setOnClickListener(){
             (activity as MainActivity).irAsignatura("Matematicas")
         }
-        btn_quimica.setOnClickListener(){
+        btn_quimicaEjercicio.setOnClickListener(){
             (activity as MainActivity).irAsignatura("Quimica")
         }
-        btn_fisica.setOnClickListener(){
+        btn_fisicaEjercicio.setOnClickListener(){
             (activity as MainActivity).irAsignatura("Fisica")
+        }
+
+        btn_matematicasExamen.setOnClickListener(){
+            (activity as MainActivity).irAsignatura("MatematicasExamen")
+        }
+        btn_quimicaExamen.setOnClickListener(){
+            (activity as MainActivity).irAsignatura("QuimicaExamen")
+        }
+        btn_fisicaExamen.setOnClickListener(){
+            (activity as MainActivity).irAsignatura("FisicaExamen")
         }
 
         return root

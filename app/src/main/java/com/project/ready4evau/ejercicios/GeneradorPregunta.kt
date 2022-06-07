@@ -69,7 +69,7 @@ class GeneradorPregunta : AppCompatActivity() {
 
         val cv_Foto = findViewById<CardView>(R.id.cv_Foto)
 
-        val anim = AnimationUtils.loadAnimation(this, R.anim.sample_anim)
+        val anim = AnimationUtils.loadAnimation(this, R.anim.pulse)
         //Cambia la pregunta
         btn_NuevaPregunta.setOnClickListener{
             val numero = arrayId.random()
@@ -104,6 +104,7 @@ class GeneradorPregunta : AppCompatActivity() {
             if (cont % 2 != 0){
                 Picasso.get().load(p_Solucion).into(iv_Pregunta);
                 btn_Solucion.setText("Ver Enunciado")
+
             }else{
                 Picasso.get().load(p_Enunciado).into(iv_Pregunta);
                 btn_Solucion.setText("Ver Solución")

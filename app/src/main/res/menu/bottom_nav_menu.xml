@@ -11,10 +11,5 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Examenes" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Ajustes" />
-
 
 </menu>

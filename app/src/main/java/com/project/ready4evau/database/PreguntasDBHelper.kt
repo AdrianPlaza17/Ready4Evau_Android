@@ -7,14 +7,19 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
+import com.project.ready4evau.database.DBExamen
 
-class PreguntasDBHelper (context: Context): SQLiteOpenHelper(context, "Ready4Evau5.db", null, 2){
+class PreguntasDBHelper (context: Context): SQLiteOpenHelper(context, "Ready4Evau0.5.db", null, 2){
     override fun onCreate(db: SQLiteDatabase?) {
 
 
         db?.execSQL(DBPregunta.PreguntaEntry.CREAR_TABLA_PREGUNTA)
+
         db?.execSQL("INSERT INTO "+DBPregunta.PreguntaEntry.TABLE_NAME+
-                "('"+DBPregunta.PreguntaEntry.COLUMN_ENUNCIADO+"', '"+DBPregunta.PreguntaEntry.COLUMN_SOLUCION+"', '"+DBPregunta.PreguntaEntry.COLUMN_TEMA+"', '"+DBPregunta.PreguntaEntry.COLUMN_ASIGNATURA+"', '"+DBPregunta.PreguntaEntry.COLUMN_NUMERO_ENUNCIADOS+"')" +
+                "('"+DBPregunta.PreguntaEntry.COLUMN_ENUNCIADO+"', '"+DBPregunta.PreguntaEntry.COLUMN_SOLUCION+"', '"
+                +DBPregunta.PreguntaEntry.COLUMN_TEMA+"', '"+DBPregunta.PreguntaEntry.COLUMN_ASIGNATURA+"', '"
+                +DBPregunta.PreguntaEntry.COLUMN_NUMERO_ENUNCIADOS+"')" +
                 "VALUES ('https://i.imgur.com/LPqtyIC.png', 'https://i.imgur.com/m1evQnv.png', 'Matrices', 'Matematicas', 2),"+//2
                 "('https://i.imgur.com/UDFVL8U.png', 'https://i.imgur.com/i6gj1vs.png', 'Matrices', 'Matematicas', 3),"+//3
                 "('https://i.imgur.com/nvKUjfg.png', 'https://i.imgur.com/lrDUT7P.png', 'Matrices', 'Matematicas', 3),"+//4
@@ -23,21 +28,23 @@ class PreguntasDBHelper (context: Context): SQLiteOpenHelper(context, "Ready4Eva
                 "('https://i.imgur.com/ROHu7xH.png', 'https://i.imgur.com/s7Np2IB.png', 'Probabilidad', 'Matematicas', 2),"+//7
                 "('https://i.imgur.com/ZWwJ495.png', 'https://i.imgur.com/pnZICGO.png', 'Matrices', 'Matematicas', 2)"
         )
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
 
-        db?.execSQL("DROP TABLE IF EXISTS " + DBPregunta.PreguntaEntry.TABLE_NAME +"")
+        db?.execSQL("DROP TABLE IF EXISTS " + DBPregunta.PreguntaEntry.TABLE_NAME)
+        //db?.execSQL("DROP TABLE IF EXISTS " + DBExamen.ExamenEntry.TABLE_NAME)
         onCreate(db);
     }
 
     @SuppressLint("Range")
     fun preguntaPorId(idSelect:Int): PreguntaModel {
-
         val db = writableDatabase
         onUpgrade(db, 2,3)
         var cursor: Cursor? = null
+
         try {
             cursor = db.rawQuery("select * from Preguntas where "+DBPregunta.PreguntaEntry.COLUMN_PREGUNTA_ID+" = '"+idSelect+"'", null)
         } catch (e: SQLiteException) {
@@ -70,7 +77,6 @@ class PreguntasDBHelper (context: Context): SQLiteOpenHelper(context, "Ready4Eva
                 numeroEnunciados = cursor.getInt(cursor.getColumnIndex(DBPregunta.PreguntaEntry.COLUMN_NUMERO_ENUNCIADOS))
 
             pregunta = PreguntaModel(id_Pregunta, enunciado, solucion, asignatura, tema, numeroEnunciados)
-
 
 
         }
@@ -108,6 +114,109 @@ class PreguntasDBHelper (context: Context): SQLiteOpenHelper(context, "Ready4Eva
         }
         return arrayId
     }
+
+    @SuppressLint("Range")
+    fun listaId(asignaturaSelect: String): ArrayList<Int>{
+        val arrayId = ArrayList<Int>()
+        val db = writableDatabase
+        var cursor: Cursor?
+        try {
+            cursor = db.rawQuery("select "+DBPregunta.PreguntaEntry.COLUMN_PREGUNTA_ID+" from " + DBPregunta.PreguntaEntry.TABLE_NAME +" where  Asignatura = '"+asignaturaSelect+"'", null)
+        } catch (e: SQLiteException) {
+            db?.execSQL("CREATE TABLE " + DBPregunta.PreguntaEntry.TABLE_NAME + " (" +
+                    DBPregunta.PreguntaEntry.COLUMN_PREGUNTA_ID+ " INTEGER NOT NULL UNIQUE," +
+                    DBPregunta.PreguntaEntry.COLUMN_ENUNCIADO + " TEXT," +
+                    DBPregunta.PreguntaEntry.COLUMN_SOLUCION + " TEXT," +
+                    DBPregunta.PreguntaEntry.COLUMN_ASIGNATURA + " TEXT," +
+                    DBPregunta.PreguntaEntry.COLUMN_TEMA + " TEXT," +
+                    DBPregunta.PreguntaEntry.COLUMN_NUMERO_ENUNCIADOS + " INTEGER," +
+                    "PRIMARY KEY( "+ DBPregunta.PreguntaEntry.COLUMN_PREGUNTA_ID+" AUTOINCREMENT)" +
+                    ")")
+            return ArrayList()
+        }
+        var numId:Int
+        if (cursor!!.moveToFirst()) {
+            while (cursor.isAfterLast == false) {
+                numId = cursor.getInt(cursor.getColumnIndex(DBPregunta.PreguntaEntry.COLUMN_PREGUNTA_ID))
+
+
+                arrayId.add(numId)
+                cursor.moveToNext()
+            }
+        }
+        return arrayId
+    }
+
+    fun crearExamen(examen :ExamenModel){
+        val db = writableDatabase
+
+        try {
+            db?.execSQL("INSERT INTO "+DBExamen.ExamenEntry.TABLE_NAME+
+                    "('"+DBExamen.ExamenEntry.COLUMN_PREGUNTA1+"', '"+DBExamen.ExamenEntry.COLUMN_PREGUNTA2+"', '"+DBExamen.ExamenEntry.COLUMN_PREGUNTA3+"', '"+DBExamen.ExamenEntry.COLUMN_PREGUNTA4+"', '"+DBExamen.ExamenEntry.COLUMN_PREGUNTA5+"', '"+DBExamen.ExamenEntry.COLUMN_TEMA+"', '"+DBExamen.ExamenEntry.COLUMN_ASIGNATURA+"', '"+DBExamen.ExamenEntry.COLUMN_NOTA+"', '"+DBExamen.ExamenEntry.COLUMN_FECHA+"')" +
+                    " VALUES ('"+examen.pregunta1+"', '"+examen.pregunta2+"', '"+examen.pregunta3+"', '"+examen.pregunta4+"', '"+examen.pregunta5+"', '"+examen.tema+"', '"+examen.asignatura+"', '"+examen.nota+"', '"+examen.fecha+"')")
+
+        }catch (e: SQLiteException){
+            db?.execSQL(DBExamen.ExamenEntry.CREAR_TABLA_EXAMEN)
+        }
+
+    }
+    fun borrarUltimoExamen(){
+        val db = writableDatabase
+
+
+            db?.execSQL("DELETE FROM "+DBExamen.ExamenEntry.TABLE_NAME+" WHERE " +
+                    ""+ DBExamen.ExamenEntry.COLUMN_EXAMEN_ID +" = (SELECT MAX("+ DBExamen.ExamenEntry.COLUMN_EXAMEN_ID +") " +
+                    "FROM "+DBExamen.ExamenEntry.TABLE_NAME+" )")
+
+
+
+
+    }
+    fun cambiarNotaUltimoExamen(nota:String){
+        val db = writableDatabase
+
+
+        db?.execSQL("UPDATE "+DBExamen.ExamenEntry.TABLE_NAME+" SET " +DBExamen.ExamenEntry.COLUMN_NOTA+" = "+nota+
+                " WHERE "+ DBExamen.ExamenEntry.COLUMN_EXAMEN_ID +" = (SELECT MAX("+ DBExamen.ExamenEntry.COLUMN_EXAMEN_ID +") " +
+                "FROM "+DBExamen.ExamenEntry.TABLE_NAME+" )")
+
+
+
+
+    }
+
+    @SuppressLint("Range")
+    fun selectAllExams(): ArrayList<ExamenAdapterModel>{
+        val al_examenes = ArrayList<ExamenAdapterModel>()
+        val db = writableDatabase
+        var cursor: Cursor? = null
+        try {
+            cursor = db.rawQuery("select * from " + DBExamen.ExamenEntry.TABLE_NAME, null)
+        } catch (e: SQLiteException) {
+            return ArrayList()
+        }
+
+        var id: Int
+        var asignatura: String
+        var tema: String
+        var nota: String
+        var fecha: String
+        if (cursor!!.moveToFirst()) {
+            while (cursor.isAfterLast == false) {
+                id= cursor.getInt(cursor.getColumnIndex(DBExamen.ExamenEntry.COLUMN_EXAMEN_ID))
+                asignatura = cursor.getString(cursor.getColumnIndex(DBExamen.ExamenEntry.COLUMN_ASIGNATURA))
+                tema = cursor.getString(cursor.getColumnIndex(DBExamen.ExamenEntry.COLUMN_TEMA))
+                nota = cursor.getString(cursor.getColumnIndex(DBExamen.ExamenEntry.COLUMN_NOTA))
+                fecha= cursor.getString(cursor.getColumnIndex(DBExamen.ExamenEntry.COLUMN_FECHA))
+
+                al_examenes.add(ExamenAdapterModel(id,asignatura, tema, nota, fecha))
+
+                cursor.moveToNext()
+            }
+        }
+        return  al_examenes
+    }
+
 
 
 

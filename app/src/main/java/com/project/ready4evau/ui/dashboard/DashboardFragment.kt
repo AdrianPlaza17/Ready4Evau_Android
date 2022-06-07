@@ -1,5 +1,6 @@
 package com.project.ready4evau.ui.dashboard
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,15 +12,27 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ready4evau.database.ExamenAdapterModel
+import com.example.ready4evau.database.PreguntasDBHelper
+import com.project.ready4evau.ExamAdapter
+import com.project.ready4evau.R
 
 
 import com.project.ready4evau.databinding.FragmentDashboardBinding
 
 
+
 class DashboardFragment : Fragment() {
+
 
     private lateinit var dashboardViewModel: DashboardViewModel
     private var _binding: FragmentDashboardBinding? = null
+
+    lateinit var PreguntasDBHelper: PreguntasDBHelper
+    private lateinit var examAdapter: ExamAdapter
+    private val examList = ArrayList<ExamenAdapterModel>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -36,29 +49,9 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val btn_facebook: Button = binding.btnFacebook
-        btn_facebook.setOnClickListener(){
-            val intentWeb = Intent(Intent.ACTION_VIEW, Uri.parse(("https://www.facebook.com/")))
-            startActivity(intentWeb)
-        }
-        val btn_twitter: Button = binding.btnTwitter
-        btn_twitter.setOnClickListener(){
-            val intentWeb = Intent(Intent.ACTION_VIEW, Uri.parse(("https://twitter.com/?lang=es")))
-            startActivity(intentWeb)
-        }
+        PreguntasDBHelper = PreguntasDBHelper(requireContext())
 
-        val btn_camara: Button = binding.btnCamara
-        btn_camara.setOnClickListener(){
-            val intentcamara=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivity(intentcamara)
-        }
-        val et_numero: EditText = binding.etNumero
-
-        val btn_llamar: Button = binding.btnLlamar
-        btn_llamar.setOnClickListener(){
-            val llamada: Intent= Uri.parse("tel: +34"+et_numero.text.toString()).let { numero-> Intent(Intent.ACTION_DIAL, numero)}
-            startActivity(llamada)
-        }
+        selectExamen()
 
         return root
     }
@@ -66,5 +59,22 @@ class DashboardFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun selectExamen(){
+
+
+        val al_examen = PreguntasDBHelper.selectAllExams()
+
+
+
+        val recyclerView: RecyclerView = binding.reciclerViewExamenes
+
+        examAdapter = ExamAdapter(al_examen)
+
+        val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = examAdapter
+
     }
 }

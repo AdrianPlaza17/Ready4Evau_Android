@@ -15,6 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ready4Evau">
         <activity
+            android:name=".ejercicios.ResultadosExamen"
+            android:exported="false" />
+        <activity
+            android:name=".ejercicios.PantallaExamen"
+            android:exported="false" />
+        <activity
+            android:name=".ejercicios.GeneradorExamenMatematicas"
+            android:exported="false" />
+        <activity
             android:name=".auth.Verificar"
             android:exported="false" />
         <activity

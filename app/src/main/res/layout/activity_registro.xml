@@ -117,10 +117,12 @@
         <Button
             android:id="@+id/btn_Registrarse"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/button_registrarse"
             android:gravity="center"
             android:text="Registrarse"
             android:textAllCaps="false"
+            android:textColor="#FFFFFF"
             app:cornerRadius="40dp" />
 
     </LinearLayout>

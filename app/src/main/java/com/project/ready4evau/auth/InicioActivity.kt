@@ -57,16 +57,16 @@ class InicioActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     irVerificacion(task.result.user?.email.toString())
-                    //updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
+                    // Si el inicio falla
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(baseContext, "Correo y/o contraseña incorrectos.",
                         Toast.LENGTH_SHORT).show()
-                    //updateUI(null)
                 }
             }
     }
+
+    //Ir a la pantalla de verificación de email
     fun irVerificacion(email: String){
 
         val intent = Intent(this, Verificar::class.java).apply {

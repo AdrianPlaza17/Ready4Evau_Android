@@ -9,5 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="naranja">#FF6B10</color>
     <color name="facebook_blue">#3F51B5</color>
+    <color name="success">#198754</color>
+    <color name="danger">#F32013</color>
 
 </resources>
