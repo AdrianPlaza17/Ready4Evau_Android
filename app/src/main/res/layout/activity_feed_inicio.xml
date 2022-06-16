@@ -41,7 +41,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_Registrarse"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="46dp"
             android:background="@drawable/button_iniciar"
             android:fontFamily="@font/roboto_medium"
             android:stateListAnimator="@null"
@@ -57,7 +57,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_Google"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="46dp"
             android:background="@drawable/button_iniciar"
             android:drawableStart="@drawable/googleg_standard_color_18"
             android:fontFamily="@font/roboto_medium"
@@ -76,7 +76,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_Facebook"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="46dp"
             android:background="@drawable/button_iniciar_facebook"
             android:drawableStart="@drawable/icons8_facebook_circled_36___"
             android:fontFamily="@font/roboto_medium"

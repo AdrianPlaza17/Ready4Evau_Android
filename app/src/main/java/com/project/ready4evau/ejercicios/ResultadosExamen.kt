@@ -121,4 +121,18 @@ class ResultadosExamen : AppCompatActivity() {
 
 
     }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setMessage("¿Salir del examen? No obtendrás una calificación.")
+            .setCancelable(false)
+            .setPositiveButton("Confirmar") { dialog, whichButton ->
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancelar") { dialog, whichButton ->
+
+            }
+            .show()
+    }
 }

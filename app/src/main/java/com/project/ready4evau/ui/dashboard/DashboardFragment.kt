@@ -10,13 +10,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ready4evau.database.ExamenAdapterModel
 import com.example.ready4evau.database.PreguntasDBHelper
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.project.ready4evau.ExamAdapter
+import com.project.ready4evau.MainActivity
 import com.project.ready4evau.R
 
 
@@ -26,6 +33,10 @@ import com.project.ready4evau.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
 
+    private lateinit var auth: FirebaseAuth
+
+    private lateinit var userID :String
+    private lateinit var al_examen: ArrayList<ExamenAdapterModel>
 
     private lateinit var dashboardViewModel: DashboardViewModel
     private var _binding: FragmentDashboardBinding? = null
@@ -51,6 +62,8 @@ class DashboardFragment : Fragment() {
 
         PreguntasDBHelper = PreguntasDBHelper(requireContext())
 
+        auth = Firebase.auth
+
         selectExamen()
 
         return root
@@ -63,18 +76,35 @@ class DashboardFragment : Fragment() {
 
     fun selectExamen(){
 
-
-        val al_examen = PreguntasDBHelper.selectAllExams()
-
-
+        userID = auth.currentUser?.uid.toString()
+        al_examen = PreguntasDBHelper.selectAllExams(userID)
 
         val recyclerView: RecyclerView = binding.reciclerViewExamenes
 
-        examAdapter = ExamAdapter(al_examen)
+
+        examAdapter = ExamAdapter(al_examen, {index -> borrarExamenLista(index)})
 
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = examAdapter
+
+
+
+    }
+
+    fun borrarExamenLista(position: Int){
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+            .setTitle("Borrar examen")
+            .setMessage("Se va a eliminar el examen. ¿Continuar?")
+            .setPositiveButton("Confirmar") { dialog, which ->
+                al_examen.removeAt(position)
+                examAdapter.setItems(al_examen)
+            }
+            .setNegativeButton("Cancelar") { dialog, which ->
+            }
+        alertDialogBuilder.show()
+
+
 
     }
 }

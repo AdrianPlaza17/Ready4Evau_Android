@@ -4,55 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="20dp"
     android:orientation="vertical"
     tools:context=".asignaturas.Matematicas">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Elige un tema"
+        android:textColor="#000000"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/btn_Matrices"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Matrices" />
 
     <Button
         android:id="@+id/btn_Determinantes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Determinantes" />
 
     <Button
         android:id="@+id/btn_Geometria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Geometría" />
 
     <Button
         android:id="@+id/btn_Limites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Límites" />
 
     <Button
         android:id="@+id/btn_Derivadas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Derivadas" />
 
     <Button
         android:id="@+id/btn_Integrales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Integrales" />
 
     <Button
         android:id="@+id/btn_Probabilidad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Probabilidad" />
 
     <Button
         android:id="@+id/btn_FechaHoy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button_naranja"
         android:text="Fecha" />
 
 </LinearLayout>

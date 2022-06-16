@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView
 import com.example.ready4evau.database.ExamenModel
 import com.example.ready4evau.database.PreguntaModel
 import com.example.ready4evau.database.PreguntasDBHelper
+import com.project.ready4evau.MainActivity
 import com.project.ready4evau.R
 import com.squareup.picasso.Picasso
 
@@ -516,6 +517,7 @@ class PantallaExamen : AppCompatActivity() {
         val ll_apartados = findViewById<LinearLayout>(R.id.ll_Apartados)
         val btn_responder = findViewById<ImageButton>(R.id.btn_ResponderPregunta)
         val tv_preguntaRespondida = findViewById<TextView>(R.id.tv_PreguntaRespondida)
+        val tv_marca = findViewById<TextView>(R.id.tv_Marca)
         var nota: Float
 
 
@@ -545,6 +547,7 @@ class PantallaExamen : AppCompatActivity() {
                 tv_preguntaRespondida.visibility = View.VISIBLE
                 ll_apartados.visibility = View.GONE
                 btn_responder.visibility = View.GONE
+                tv_marca.visibility = View.GONE
                 }
             .setNegativeButton("Cancelar") { dialog, which ->
             }
@@ -564,6 +567,19 @@ class PantallaExamen : AppCompatActivity() {
             }
         alertDialogBuilder.show()
 
+    }
+    override fun onBackPressed() {
+        AlertDialog.Builder(this)
+            .setMessage("¿Salir del examen? No obtendrás una calificación.")
+            .setCancelable(false)
+            .setPositiveButton("Confirmar") { dialog, whichButton ->
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancelar") { dialog, whichButton ->
+
+            }
+            .show()
     }
 
 

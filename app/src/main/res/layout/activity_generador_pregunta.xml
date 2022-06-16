@@ -7,42 +7,63 @@
     android:orientation="vertical"
     tools:context=".ejercicios.GeneradorPregunta">
 
-    <TextView
-        android:id="@+id/tv_Asignatura"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/tv_Tema"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/btn_NuevaPregunta"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nueva Pregunta" />
+        android:layout_height="20dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_Foto"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_margin="10dp">
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp">
 
         <ImageView
             android:id="@+id/iv_Pregunta"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="10dp"
             tools:srcCompat="@tools:sample/avatars" />
+
     </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btn_Solucion"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ver Solucion" />
+        android:layout_marginHorizontal="10dp"
+        android:background="@color/naranja"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Ver solucion"
+        android:textColor="#FFFFFF" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_NuevaPregunta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="#00FFFFFF"
+            android:drawableEnd="@drawable/add_fill0_wght400_grad0_opsz24"
+            android:text="Nueva Pregunta"
+            android:textColor="@color/naranja" />
+    </FrameLayout>
 
 </LinearLayout>

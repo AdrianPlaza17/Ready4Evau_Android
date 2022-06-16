@@ -9,8 +9,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_height="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +24,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
             android:text="Ejercicio"
+            android:textColor="#090909"
             android:textSize="20sp" />
 
         <Space
@@ -37,7 +37,7 @@
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:background="@drawable/button_exam_finished"
+            android:background="@drawable/button_naranja"
             android:drawableStart="@drawable/task_fill0_wght300_grad0_opsz24"
             android:fontFamily="@font/roboto_medium"
             android:paddingLeft="15dip"
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
+            android:layout_marginVertical="10dp"
             tools:srcCompat="@tools:sample/avatars" />
 
     </androidx.cardview.widget.CardView>
@@ -74,11 +74,23 @@
         android:text="Ver solucion"
         android:textColor="#FFFFFF" />
 
+    <TextView
+        android:id="@+id/tv_Marca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Marca las respuestas correctas:"
+        android:textColor="#090909"
+        android:textSize="20sp" />
+
     <LinearLayout
         android:id="@+id/ll_Apartados"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -142,7 +154,8 @@
         android:id="@+id/tv_PreguntaRespondida"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto_medium"
         android:gravity="center"
         android:text="Pregunta respondida"
@@ -150,42 +163,44 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="gone" />
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
 
-        <Button
-            android:id="@+id/btn_atras"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:drawableStart="@drawable/navigate_before_fill0_wght400_grad0_opsz24"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Anterior" />
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="horizontal">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <Button
+                android:id="@+id/btn_atras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:drawableStart="@drawable/navigate_before_fill0_wght400_grad0_opsz24"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Anterior" />
 
-        <Button
-            android:id="@+id/btn_adelante"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00685C5C"
-            android:drawableEnd="@drawable/navigate_next_fill0_wght400_grad0_opsz24"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Siguiente" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_adelante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#00685C5C"
+                android:drawableEnd="@drawable/navigate_next_fill0_wght400_grad0_opsz24"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Siguiente" />
+
+        </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>
